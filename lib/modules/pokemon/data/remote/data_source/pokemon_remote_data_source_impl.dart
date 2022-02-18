@@ -13,7 +13,7 @@ class PokemonRemoteDataSourceImpl implements PokemonRemoteDataSource {
   final Dio dio;
 
   @override
-  Future<List<PokemonModel>> getAllPokemon() async {
+  Future<List<PokemonModel>> getAllPokemons() async {
     try {
       final response =
           await dio.get('https://pokeapi.co/api/v2/pokemon/?limit=15');
