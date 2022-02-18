@@ -1,6 +1,6 @@
-import 'package:pokedex_app/modules/pokemon/data/remote/model/pokemon/details/pokemon_response.dart';
-import 'package:pokedex_app/modules/pokemon/domain/model/pokemon_model.dart';
-import 'package:pokedex_app/modules/pokemon/domain/model/stat_model.dart';
+import '../../../domain/model/pokemon_model.dart';
+import '../../../domain/model/stat_model.dart';
+import '../model/pokemon/details/pokemon_response.dart';
 
 extension PokemonResponseToPokemonModel on PokemonResponse {
   PokemonModel toPokemonModel() => PokemonModel(
