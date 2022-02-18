@@ -1,6 +1,6 @@
-import 'package:pokedex_app/modules/pokemon/data/remote/data_source/pokemon_remote_data_source.dart';
-import 'package:pokedex_app/modules/pokemon/domain/model/pokemon_model.dart';
-import 'package:pokedex_app/modules/pokemon/domain/repository/pokemon_repository.dart';
+import '../../domain/model/pokemon_model.dart';
+import '../../domain/repository/pokemon_repository.dart';
+import '../remote/data_source/pokemon_remote_data_source.dart';
 
 class PokemonRepositoryImpl implements PokemonRepository {
   PokemonRepositoryImpl(
@@ -11,11 +11,7 @@ class PokemonRepositoryImpl implements PokemonRepository {
 
   @override
   Future<List<PokemonModel>> getPokemonList() async {
-    try{
       final pokemonList = await _pokemonRemoteDataSource.getAllPokemons();
       return pokemonList;
-    } on Exception{
-      return _pokemonRemoteDataSource.getAllPokemons();
-    }
   }
 }

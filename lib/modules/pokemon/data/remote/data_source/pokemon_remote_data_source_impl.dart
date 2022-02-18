@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:pokedex_app/modules/pokemon/data/remote/data_source/pokemon_remote_data_source.dart';
-import 'package:pokedex_app/modules/pokemon/data/remote/model/pokemon/details/pokemon_response.dart';
-import 'package:pokedex_app/modules/pokemon/data/remote/model/pokemon/pokemon_response/pokedex_response.dart';
-import 'package:pokedex_app/modules/pokemon/data/remote/remote_to_model/remote_to_model.dart';
-import 'package:pokedex_app/modules/pokemon/domain/model/pokemon_model.dart';
+import '../../../domain/model/pokemon_model.dart';
+import '../model/pokemon/details/pokemon_response.dart';
+import '../model/pokemon/pokemon_response/pokedex_response.dart';
+import '../remote_to_model/remote_to_model.dart';
+import 'pokemon_remote_data_source.dart';
 
 class PokemonRemoteDataSourceImpl implements PokemonRemoteDataSource {
   PokemonRemoteDataSourceImpl(
