@@ -17,14 +17,14 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'Poppins',
           colorScheme: ColorScheme.fromSwatch().copyWith(
-            primary: const Color(0xFFC1007E),
+            primary: const Color(0xFFEC0344),
             secondary: const Color(0xFF9E9E9E),
           ),
-          toggleableActiveColor: const Color(0xFFC1007E),
+          toggleableActiveColor: const Color(0xFFEC0344),
           iconTheme: const IconThemeData(
-            color: Color(0xFFC1007E),
+            color: Color(0xFFEC0344),
           ),
-          listTileTheme: const ListTileThemeData(iconColor: Color(0xFFC1007E)),
+          listTileTheme: const ListTileThemeData(iconColor: Color(0xFFEC0344)),
         ),
         initialRoute: '/',
         routes: {

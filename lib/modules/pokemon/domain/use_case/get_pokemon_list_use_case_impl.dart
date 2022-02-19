@@ -3,7 +3,7 @@ import '../repository/pokemon_repository.dart';
 import 'get_pokemon_list_use_case.dart';
 
 class GetPokemonListUseCaseImpl implements GetPokemonListUseCase {
-  GetPokemonListUseCaseImpl({required pokemonRepository})
+  GetPokemonListUseCaseImpl({required PokemonRepository pokemonRepository})
       : _pokemonRepository = pokemonRepository;
 
   final PokemonRepository _pokemonRepository;

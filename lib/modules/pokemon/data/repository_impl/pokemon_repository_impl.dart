@@ -15,3 +15,4 @@ class PokemonRepositoryImpl implements PokemonRepository {
       return pokemonList;
   }
 }
+
