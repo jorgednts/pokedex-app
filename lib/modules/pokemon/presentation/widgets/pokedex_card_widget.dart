@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:pokedex_app/modules/pokemon/domain/model/pokemon_model.dart';
-import 'package:pokedex_app/modules/pokemon/presentation/page/pokemon_details_page.dart';
+import '../../domain/model/pokemon_model.dart';
+import '../page/pokemon_details_page.dart';
 
 class PokedexCardWidget extends StatelessWidget {
   const PokedexCardWidget({
@@ -14,7 +14,7 @@ class PokedexCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => GestureDetector(
         onTap: () {
-          Navigator.pushReplacement(
+          Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) =>

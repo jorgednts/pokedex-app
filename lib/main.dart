@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/modules/pokemon/presentation/page/pokedex_page.dart';
 import 'modules/splash/presentation/page/splash_page.dart';
 
 void main() {
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
         //   '/':(context) => const SplashPage(),
         //   '/pokedex': (context) => const PokedexPage(),
         //   '/pokemon-details': (context) => const Pokedex
-        },
+        //},
       );
 }
 
