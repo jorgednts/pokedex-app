@@ -46,19 +46,15 @@ class S {
     return instance!;
   }
 
-  static S? maybeOf(BuildContext context) {
-    return Localizations.of<S>(context, S);
-  }
+  static S? maybeOf(BuildContext context) => Localizations.of<S>(context, S);
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   const AppLocalizationDelegate();
 
-  List<Locale> get supportedLocales {
-    return const <Locale>[
+  List<Locale> get supportedLocales => const <Locale>[
       Locale.fromSubtags(languageCode: 'en', countryCode: 'US'),
     ];
-  }
 
   @override
   bool isSupported(Locale locale) => _isSupported(locale);

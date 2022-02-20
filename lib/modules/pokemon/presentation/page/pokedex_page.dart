@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+
+import '../../data/remote/data_source/pokemon_remote_data_source.dart';
 import '../../data/remote/data_source/pokemon_remote_data_source_impl.dart';
 import '../../data/repository_impl/pokemon_repository_impl.dart';
 import '../../domain/model/pokemon_model.dart';
@@ -8,8 +10,6 @@ import '../../domain/use_case/get_pokemon_list_use_case.dart';
 import '../../domain/use_case/get_pokemon_list_use_case_impl.dart';
 import '../controllers/pokemon_list_controller.dart';
 import '../widgets/pokedex_card_widget.dart';
-
-import '../../data/remote/data_source/pokemon_remote_data_source.dart';
 import 'pokedex_page_state.dart';
 
 class PokedexPage extends StatefulWidget {
