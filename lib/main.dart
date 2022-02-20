@@ -26,10 +26,12 @@ class MyApp extends StatelessWidget {
           ),
           listTileTheme: const ListTileThemeData(iconColor: Color(0xFFEC0344)),
         ),
-        initialRoute: '/',
-        routes: {
-          '/':(context) => const SplashPage(),
-          '/pokedex': (context) => const PokedexPage(),
+        home: const SplashPage(),
+        // initialRoute: '/',
+        // routes: {
+        //   '/':(context) => const SplashPage(),
+        //   '/pokedex': (context) => const PokedexPage(),
+        //   '/pokemon-details': (context) => const Pokedex
         },
       );
 }

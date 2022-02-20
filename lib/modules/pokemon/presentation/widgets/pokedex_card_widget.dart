@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pokedex_app/modules/pokemon/domain/model/pokemon_model.dart';
+import 'package:pokedex_app/modules/pokemon/presentation/page/pokemon_details_page.dart';
 
 class PokedexCardWidget extends StatelessWidget {
   const PokedexCardWidget({
@@ -12,7 +13,13 @@ class PokedexCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      PokemonDetailPage(pokemon: pokemon)));
+        },
         child: Card(
           color: Colors.transparent,
           elevation: 0,
@@ -30,7 +37,7 @@ class PokedexCardWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        pokemon.id.toString(),
+                        '#${pokemon.id.toString()}',
                         style: const TextStyle(
                           color: Color(0xFFEC0344),
                           fontSize: 9,

@@ -17,7 +17,7 @@ class PokemonRemoteDataSourceImpl implements PokemonRemoteDataSource {
     dio.interceptors.add(LogInterceptor(responseBody: true));
     try {
       final response =
-      await dio.get('https://pokeapi.co/api/v2/pokemon/?limit=15');
+      await dio.get('https://pokeapi.co/api/v2/pokemon/?limit=30');
       final pokedexResponse = PokedexResponse.fromJson(response.data);
       final pokemons = <PokemonModel>[];
       for (final pokemonUrl in pokedexResponse.pokemonUrlList) {
