@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:pokedex_app/modules/pokemon/presentation/widgets/pokemon_image_widget.dart';
 import 'package:pokedex_app/modules/pokemon/presentation/widgets/pokemon_properties_widget.dart';
 import 'package:pokedex_app/modules/pokemon/presentation/widgets/pokemon_stat_list_builder.dart';
+import 'package:pokedex_app/modules/pokemon/presentation/widgets/pokemon_type_list_widget.dart';
+
 import '../../domain/model/pokemon_model.dart';
 
 class PokemonDetailPage extends StatelessWidget {
@@ -38,34 +40,7 @@ class PokemonDetailPage extends StatelessWidget {
             child: Center(
               child: Column(
                 children: [
-                  Stack(
-                    children: [
-                      Positioned(
-                        top: 50,
-                        right: 2,
-                        child: Image.asset(
-                          'assets/images/pokeball.png',
-                          height: 130,
-                          width: 130,
-                          color: Colors.blueGrey.withOpacity(1),
-                          colorBlendMode: BlendMode.modulate,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 120),
-                        child: SizedBox(
-                          width: 200,
-                          height: 200,
-                          child: SvgPicture.network(
-                            pokemon.image,
-                            placeholderBuilder: (context) => const Center(
-                              child: CircularProgressIndicator(),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  PokemonImageWidget(pokemon: pokemon),
                   Container(
                     height: 508,
                     width: 400,
@@ -79,33 +54,7 @@ class PokemonDetailPage extends StatelessWidget {
                       ),
                       child: Column(
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 30, top: 8),
-                                child: Wrap(
-                                  children: List.generate(
-                                    pokemon.typeList.length,
-                                    (index) => Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 3),
-                                      child: Chip(
-                                        label: Text(
-                                          pokemon.typeList[index],
-                                          style: const TextStyle(
-                                              color: Colors.white),
-                                        ),
-                                        backgroundColor:
-                                            const Color(0xFFEC0344),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                          PokemonTypeList(pokemon: pokemon),
                           PokemonPropertiesWidget(pokemon: pokemon),
                           const Padding(
                             padding: EdgeInsets.only(bottom: 30),
