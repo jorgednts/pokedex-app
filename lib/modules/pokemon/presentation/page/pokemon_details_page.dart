@@ -14,9 +14,20 @@ class PokemonDetailPage extends StatelessWidget {
         extendBodyBehindAppBar: true,
         backgroundColor: const Color(0xFFEC0344),
         appBar: AppBar(
-          title: Text(pokemon.name),
+          title: Text(pokemon.name,
+              style:
+                  const TextStyle(fontWeight: FontWeight.w700)),
           backgroundColor: Colors.transparent,
           elevation: 0,
+          actions: [
+            Padding(
+                padding: const EdgeInsets.all(15),
+                child: Text(
+                  '#${pokemon.id.toString()}',
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.w700),
+                ))
+          ],
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -66,13 +77,41 @@ class PokemonDetailPage extends StatelessWidget {
                       ),
                       child: Column(
                         children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 30, top: 8),
+                                child: Wrap(
+                                  children: List.generate(
+                                    pokemon.typeList.length,
+                                    (index) => Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 3),
+                                      child: Chip(
+                                        label: Text(
+                                          pokemon.typeList[index],
+                                          style: const TextStyle(
+                                              color: Colors.white),
+                                        ),
+                                        backgroundColor:
+                                            const Color(0xFFEC0344),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 vertical: 10, horizontal: 10),
                             child: Padding(
                               padding: const EdgeInsets.all(10),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Column(
@@ -88,8 +127,7 @@ class PokemonDetailPage extends StatelessWidget {
                                             padding:
                                                 const EdgeInsets.only(left: 3),
                                             child: Text(
-                                              '${(pokemon.weight / 10)
-                                                  .toString()}'
+                                              '${(pokemon.weight / 10).toString()}'
                                               ' kg',
                                               style:
                                                   const TextStyle(fontSize: 14),
@@ -116,9 +154,10 @@ class PokemonDetailPage extends StatelessWidget {
                                             height: 16,
                                           ),
                                           Text(
-                                            '${(pokemon.height / 10).toString()} '
-                                            'm',
-                                            style: const TextStyle(fontSize: 14),
+                                            '${(pokemon.height / 10).toString()}'
+                                            ' m',
+                                            style:
+                                                const TextStyle(fontSize: 14),
                                           ),
                                         ],
                                       ),
@@ -134,7 +173,8 @@ class PokemonDetailPage extends StatelessWidget {
                                   Column(
                                     children: [
                                       Text(
-                                        '${pokemon.abilityList.first} / ${pokemon.abilityList.last}',
+                                        '${pokemon.abilityList.first} '
+                                        '/ ${pokemon.abilityList.last}',
                                         style: const TextStyle(fontSize: 14),
                                       ),
                                       const SizedBox(height: 12),
