@@ -16,6 +16,7 @@ class PokemonDetailPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(pokemon.name),
           backgroundColor: Colors.transparent,
+          elevation: 0,
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -56,6 +57,7 @@ class PokemonDetailPage extends StatelessWidget {
                     height: 508,
                     width: 400,
                     child: Card(
+                      margin: EdgeInsets.all(5),
                       color: Colors.white,
                       shape: RoundedRectangleBorder(
                         side: const BorderSide(
@@ -134,6 +136,8 @@ class PokemonDetailPage extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                           ),
                           ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            padding: const EdgeInsets.symmetric(),
                             shrinkWrap: true,
                             itemCount: pokemon.statList.length,
                             itemBuilder: (context, index) => Row(children: [
@@ -154,7 +158,7 @@ class PokemonDetailPage extends StatelessWidget {
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                             ]),
-                          )
+                          ),
                         ],
                       ),
                     ),
