@@ -201,6 +201,7 @@ class PokemonDetailPage extends StatelessWidget {
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold),
                           ),
+                          const SizedBox(height: 10,),
                           ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             padding: const EdgeInsets.symmetric(),

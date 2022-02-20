@@ -15,32 +15,27 @@ class PokemonStatListBuilder extends StatelessWidget {
       Row(children: [
         SizedBox(
           width: 80,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 40),
-                child: Text(
-                  '${getStat()}',
-                  style: const TextStyle(
-                      color: Color(0xFFEC0344),
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
+          height: 30,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 40),
+            child: Text(
+              '${getStat()}',
+              style: const TextStyle(
+                  color: Color(0xFFEC0344),
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
         ),
         SizedBox(
           width: 40,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                pokemon.statList[index].base.toString(),
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ],
+          height: 30,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 8),
+            child: Text(
+              pokemon.statList[index].base.toString(),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
           ),
         ),
       ]);
