@@ -3,7 +3,8 @@ import '../../domain/model/pokemon_model.dart';
 
 class PokemonStatListBuilder extends StatelessWidget {
   const PokemonStatListBuilder({
-    required this.pokemon, required this.index,
+    required this.pokemon,
+    required this.index,
     Key? key,
   }) : super(key: key);
 
@@ -11,8 +12,7 @@ class PokemonStatListBuilder extends StatelessWidget {
   final int index;
 
   @override
-  Widget build(BuildContext context) =>
-      Row(children: [
+  Widget build(BuildContext context) => Row(children: [
         SizedBox(
           width: 80,
           height: 30,
@@ -38,12 +38,21 @@ class PokemonStatListBuilder extends StatelessWidget {
             ),
           ),
         ),
+        const SizedBox(width:20),
+        Container(
+          width: 200,
+          child: LinearProgressIndicator(
+            backgroundColor: const Color(0xFFEC0344).withAlpha(50),
+            color: const Color(0xFFEC0344),
+            value: pokemon.statList[index].base/100,
+          ),
+        )
       ]);
 
-  String getStat(){
-    switch (index){
+  String getStat() {
+    switch (index) {
       case 0:
-        return  'HP';
+        return 'HP';
       case 1:
         return 'ATK';
       case 2:

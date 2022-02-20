@@ -7,7 +7,7 @@ part 'pokedex_response.g.dart';
 class PokedexResponse {
   PokedexResponse(
     this.pokemonUrlList,
-    this.nextUrl,
+//    this.nextUrl,
   );
 
   factory PokedexResponse.fromJson(Map<String, dynamic> json) =>
@@ -15,8 +15,8 @@ class PokedexResponse {
 
   @JsonKey(name: 'results')
   final List<PokemonUrlResponse> pokemonUrlList;
-  @JsonKey(name: 'next')
-  final String nextUrl;
+//  @JsonKey(name: 'next')
+//  final String nextUrl;
 
   Map<String, dynamic> toJson() => _$PokedexResponseToJson(this);
 }
