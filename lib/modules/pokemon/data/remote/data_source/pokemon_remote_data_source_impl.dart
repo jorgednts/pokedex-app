@@ -7,16 +7,17 @@ import 'pokemon_remote_data_source.dart';
 
 class PokemonRemoteDataSourceImpl implements PokemonRemoteDataSource {
   PokemonRemoteDataSourceImpl(
-    this.dio,
-  );
+      this.dio,
+      );
 
   final Dio dio;
 
   @override
   Future<List<PokemonModel>> getAllPokemons() async {
+    dio.interceptors.add(LogInterceptor(responseBody: true));
     try {
       final response =
-          await dio.get('https://pokeapi.co/api/v2/pokemon/?limit=15');
+      await dio.get('https://pokeapi.co/api/v2/pokemon/?limit=15');
       final pokedexResponse = PokedexResponse.fromJson(response.data);
       final pokemons = <PokemonModel>[];
       for (final pokemonUrl in pokedexResponse.pokemonUrlList) {
