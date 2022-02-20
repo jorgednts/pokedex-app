@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pokedex_app/modules/pokemon/presentation/widgets/pokemon_properties_widget.dart';
 import 'package:pokedex_app/modules/pokemon/presentation/widgets/pokemon_stat_list_builder.dart';
 import '../../domain/model/pokemon_model.dart';
 
@@ -21,12 +22,13 @@ class PokemonDetailPage extends StatelessWidget {
           elevation: 0,
           actions: [
             Padding(
-                padding: const EdgeInsets.all(15),
-                child: Text(
-                  '#${pokemon.id.toString()}',
-                  style: const TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.w700),
-                ))
+              padding: const EdgeInsets.all(15),
+              child: Text(
+                '#${pokemon.id.toString()}',
+                style:
+                    const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+              ),
+            ),
           ],
         ),
         body: SingleChildScrollView(
@@ -104,92 +106,7 @@ class PokemonDetailPage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 10),
-                            child: Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Column(
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Image.asset(
-                                            'assets/images/weight_icon.png',
-                                            width: 16,
-                                            height: 16,
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 3),
-                                            child: Text(
-                                              '${(pokemon.weight / 10).toString()}'
-                                              ' kg',
-                                              style:
-                                                  const TextStyle(fontSize: 14),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(height: 12),
-                                      const Text(
-                                        'Weight',
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            color: Color(0xFFB2B2B2)),
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Image.asset(
-                                            'assets/images/height_icon.png',
-                                            width: 16,
-                                            height: 16,
-                                          ),
-                                          Text(
-                                            '${(pokemon.height / 10).toString()}'
-                                            ' m',
-                                            style:
-                                                const TextStyle(fontSize: 14),
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(height: 12),
-                                      const Text(
-                                        'Height',
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            color: Color(0xFFB2B2B2)),
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        '${pokemon.abilityList.first} '
-                                        '/ ${pokemon.abilityList.last}',
-                                        style: const TextStyle(fontSize: 14),
-                                      ),
-                                      const SizedBox(height: 12),
-                                      const Text(
-                                        'Moves',
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            color: Color(0xFFB2B2B2)),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
+                          PokemonPropertiesWidget(pokemon: pokemon),
                           const Padding(
                             padding: EdgeInsets.only(bottom: 30),
                             child: Text('INFO'),
@@ -201,7 +118,9 @@ class PokemonDetailPage extends StatelessWidget {
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold),
                           ),
-                          const SizedBox(height: 10,),
+                          const SizedBox(
+                            height: 10,
+                          ),
                           ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             padding: const EdgeInsets.symmetric(),
