@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pokedex_app/modules/pokemon/presentation/widgets/pokemon_stat_list_builder.dart';
 import '../../domain/model/pokemon_model.dart';
 
 class PokemonDetailPage extends StatelessWidget {
@@ -15,8 +16,7 @@ class PokemonDetailPage extends StatelessWidget {
         backgroundColor: const Color(0xFFEC0344),
         appBar: AppBar(
           title: Text(pokemon.name,
-              style:
-                  const TextStyle(fontWeight: FontWeight.w700)),
+              style: const TextStyle(fontWeight: FontWeight.w700)),
           backgroundColor: Colors.transparent,
           elevation: 0,
           actions: [
@@ -206,24 +206,11 @@ class PokemonDetailPage extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(),
                             shrinkWrap: true,
                             itemCount: pokemon.statList.length,
-                            itemBuilder: (context, index) => Row(children: [
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 32, bottom: 7),
-                                child: Text(
-                                  '${pokemon.statList[index].name} = ',
-                                  style: const TextStyle(
-                                      color: Color(0xFFEC0344),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              Text(
-                                pokemon.statList[index].base.toString(),
-                                style: const TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                              ),
-                            ]),
+                            itemBuilder: (context, index) =>
+                                PokemonStatListBuilder(
+                              pokemon: pokemon,
+                              index: index,
+                            ),
                           ),
                         ],
                       ),
