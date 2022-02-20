@@ -211,7 +211,7 @@ class PokemonDetailPage extends StatelessWidget {
                                 padding:
                                     const EdgeInsets.only(left: 32, bottom: 7),
                                 child: Text(
-                                  '${pokemon.statList[index].name} : ',
+                                  '${pokemon.statList[index].name} = ',
                                   style: const TextStyle(
                                       color: Color(0xFFEC0344),
                                       fontSize: 16,

@@ -17,8 +17,7 @@ class PokedexCardWidget extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) =>
-                      PokemonDetailPage(pokemon: pokemon)));
+                  builder: (context) => PokemonDetailPage(pokemon: pokemon)));
         },
         child: Card(
           color: Colors.transparent,
@@ -60,11 +59,22 @@ class PokedexCardWidget extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: Text(
-                  pokemon.name,
-                  style:
-                      const TextStyle(color: Color(0xFFEC0344), fontSize: 10),
+                padding: const EdgeInsets.only(bottom: 0, top: 5),
+                child: Container(
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFEC0344),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                    ),
+                  ),
+                  width: MediaQuery.of(context).size.width,
+                  child: Center(
+                    child: Text(
+                      pokemon.name,
+                      style: const TextStyle(color: Colors.white, fontSize: 12),
+                    ),
+                  ),
                 ),
               ),
             ],
