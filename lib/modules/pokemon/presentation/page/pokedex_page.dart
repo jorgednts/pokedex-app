@@ -107,7 +107,10 @@ class _PokedexPageState extends State<PokedexPage> {
                             height: 50,
                             width: 50,
                             child: const Center(
-                              child: CircularProgressIndicator(),
+                              child: Padding(
+                                padding: EdgeInsets.only(top: 15),
+                                child: CircularProgressIndicator(),
+                              ),
                             ),
                           );
                         case PokedexPageState.success:
