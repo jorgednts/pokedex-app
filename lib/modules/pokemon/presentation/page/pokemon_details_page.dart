@@ -35,14 +35,12 @@ class PokemonDetailPage extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Container(
-            height: MediaQuery.of(context).size.height,
             width: double.infinity,
             child: Center(
               child: Column(
                 children: [
                   PokemonImageWidget(pokemon: pokemon),
                   Container(
-                    height: 508,
                     width: 400,
                     child: Card(
                       margin: const EdgeInsets.all(5),
@@ -56,10 +54,6 @@ class PokemonDetailPage extends StatelessWidget {
                         children: [
                           PokemonTypeList(pokemon: pokemon),
                           PokemonPropertiesWidget(pokemon: pokemon),
-                          const Padding(
-                            padding: EdgeInsets.only(bottom: 30),
-                            child: Text('INFO'),
-                          ),
                           const Text(
                             'Base Stats',
                             style: TextStyle(

@@ -22,7 +22,7 @@ class PokedexCardWidget extends StatelessWidget {
         child: Card(
           color: Colors.transparent,
           elevation: 0,
-          margin: const EdgeInsets.all(2),
+          margin: const EdgeInsets.all(5),
           shape: RoundedRectangleBorder(
             side: const BorderSide(color: Color(0xFFEC0344), width: 1),
             borderRadius: BorderRadius.circular(20),

@@ -103,30 +103,36 @@ class _PokedexPageState extends State<PokedexPage> {
                     builder: (context, state, _) {
                       switch (state) {
                         case PokedexPageState.loading:
-                          return Container(
-                            height: 50,
-                            width: 50,
-                            child: const Center(
-                              child: Padding(
-                                padding: EdgeInsets.only(top: 15),
-                                child: CircularProgressIndicator(),
+                          return Padding(
+                            padding: const EdgeInsets.only(top: 100),
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              child: const Center(
+                                child: Padding(
+                                  padding: EdgeInsets.only(top: 15),
+                                  child: CircularProgressIndicator(),
+                                ),
                               ),
                             ),
                           );
                         case PokedexPageState.success:
-                          return GridView.builder(
-                            physics: const NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: controller.pokemonList.length,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                                    mainAxisSpacing: 5,
-                                    crossAxisSpacing: 5,
-                                    crossAxisCount: 3),
-                            itemBuilder: (context, index) => Padding(
-                              padding: const EdgeInsets.only(left: 3, right: 3),
-                              child: PokedexCardWidget(
-                                pokemon: controller.pokemonList[index],
+                          return Container(
+                            margin: const EdgeInsets.only(left: 8, right: 8),
+                            child: GridView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: controller.pokemonList.length,
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                      mainAxisSpacing: 5,
+                                      crossAxisSpacing: 5,
+                                      crossAxisCount: 3),
+                              itemBuilder: (context, index) => Padding(
+                                padding: const EdgeInsets.only(left: 5, right: 5),
+                                child: PokedexCardWidget(
+                                  pokemon: controller.pokemonList[index],
+                                ),
                               ),
                             ),
                           );
