@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../domain/model/pokemon_model.dart';
+import 'package:pokedex_app/modules/pokemon/domain/model/pokemon/pokemon_model.dart';
 import '../page/pokemon_details_page.dart';
 
 class PokedexCardWidget extends StatelessWidget {
@@ -24,7 +24,10 @@ class PokedexCardWidget extends StatelessWidget {
           elevation: 0,
           margin: const EdgeInsets.all(5),
           shape: RoundedRectangleBorder(
-            side: const BorderSide(color: Color(0xFFEC0344), width: 1),
+            side: BorderSide(
+                color:
+                    pokemon.mapPokemonTypeToColor(pokemon.colorNameByFirstType),
+                width: 1),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Column(
@@ -36,9 +39,10 @@ class PokedexCardWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        '#${pokemon.id.toString()}',
-                        style: const TextStyle(
-                          color: Color(0xFFEC0344),
+                        pokemon.setPokemonId(pokemon.id),
+                        style: TextStyle(
+                          color: pokemon.mapPokemonTypeToColor(
+                              pokemon.colorNameByFirstType),
                           fontSize: 9,
                         ),
                       ),
@@ -61,9 +65,10 @@ class PokedexCardWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(bottom: 0, top: 5),
                 child: Container(
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFEC0344),
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    color: pokemon
+                        .mapPokemonTypeToColor(pokemon.colorNameByFirstType),
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(20),
                       bottomRight: Radius.circular(20),
                     ),

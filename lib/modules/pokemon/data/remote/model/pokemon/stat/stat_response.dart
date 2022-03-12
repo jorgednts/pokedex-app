@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+
 part 'stat_response.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)

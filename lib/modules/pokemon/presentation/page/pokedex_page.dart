@@ -1,16 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-
-import '../../data/remote/data_source/pokemon_remote_data_source.dart';
-import '../../data/remote/data_source/pokemon_remote_data_source_impl.dart';
-import '../../data/repository_impl/pokemon_repository_impl.dart';
-import '../../domain/model/pokemon_model.dart';
-import '../../domain/repository/pokemon_repository.dart';
-import '../../domain/use_case/get_pokemon_list_use_case.dart';
-import '../../domain/use_case/get_pokemon_list_use_case_impl.dart';
-import '../controllers/pokemon_list_controller.dart';
-import '../widgets/pokedex_card_widget.dart';
-import 'pokedex_page_state.dart';
+import 'package:pokedex_app/modules/pokemon/data/remote/data_source/pokemon_remote_data_source.dart';
+import 'package:pokedex_app/modules/pokemon/data/repository/pokemon_repository_impl.dart';
+import 'package:pokedex_app/modules/pokemon/domain/model/pokemon/pokemon_model.dart';
+import 'package:pokedex_app/modules/pokemon/domain/repository/pokemon_repository.dart';
+import 'package:pokedex_app/modules/pokemon/domain/use_case/get_pokemon_list_use_case.dart';
+import 'package:pokedex_app/modules/pokemon/domain/use_case/get_pokemon_typed_use_case.dart';
+import 'package:pokedex_app/modules/pokemon/external/remote_data_source/pokemon_remote_data_source_impl.dart';
+import 'package:pokedex_app/modules/pokemon/presentation/controllers/pokemon_list_controller.dart';
+import 'package:pokedex_app/modules/pokemon/presentation/page/pokedex_page_state.dart';
+import 'package:pokedex_app/modules/pokemon/presentation/widgets/pokedex_card_widget.dart';
+import 'package:pokedex_app/modules/pokemon/utils/string_extensions.dart';
 
 class PokedexPage extends StatefulWidget {
   const PokedexPage({Key? key}) : super(key: key);
@@ -25,85 +25,126 @@ class _PokedexPageState extends State<PokedexPage> {
   late GetPokemonListUseCase getPokemonListUseCase;
   late PokemonListController controller;
   late List<PokemonModel> pokemonList;
+  late ScrollController _scrollController;
+  late GetPokemonTypedUseCase getPokemonTypedUseCase;
 
   @override
   void initState() {
     super.initState();
-    pokemonRemoteDataSource = PokemonRemoteDataSourceImpl(Dio());
+    pokemonRemoteDataSource = PokemonRemoteDataSourceImpl(dio: Dio());
     pokemonRepository =
         PokemonRepositoryImpl(pokemonRemoteDataSource: pokemonRemoteDataSource);
     getPokemonListUseCase =
         GetPokemonListUseCaseImpl(pokemonRepository: pokemonRepository);
-    controller =
-        PokemonListController(getPokemonListUseCase: getPokemonListUseCase);
+    getPokemonTypedUseCase =
+        GetPokemonTypedUseCaseImpl(pokemonRepository: pokemonRepository);
+    controller = PokemonListController(
+        getPokemonListUseCase: getPokemonListUseCase,
+        getPokemonTypedUseCase: getPokemonTypedUseCase);
+    _setScrollController();
     controller.getPokemonList();
+  }
+
+  void _setScrollController() {
+    _scrollController =
+        ScrollController(initialScrollOffset: 15, keepScrollOffset: true);
+    _scrollController.addListener(() {
+      if (_scrollController.offset >=
+              _scrollController.position.maxScrollExtent &&
+          !_scrollController.position.outOfRange &&
+          _scrollController.positions.length != 1) {
+        controller.getPokemonList();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _showSnackBar(String message) {
+    final snackBar = SnackBar(
+      content: Text(message),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: SingleChildScrollView(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 70, bottom: 10),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 48, right: 13),
-                        child: Image.asset('assets/images/logo_icon.png'),
-                      ),
-                      const Text('ioasys pokédex',
-                          style: TextStyle(
-                            color: Color(0xFFEC0344),
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          )),
-                    ],
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(
-                      top: 30,
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 70, bottom: 10),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 48, right: 13),
+                      child: Image.asset('assets/images/logo_icon.png'),
                     ),
+                    const Text('ioasys pokédex',
+                        style: TextStyle(
+                          color: Color(0xFFEC0344),
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        )),
+                  ],
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(
+                    top: 30,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Buscar Pokemon',
-                              hintStyle:
-                                  const TextStyle(color: Color(0xFF767676)),
-                              filled: true,
-                              fillColor: Colors.white,
-                              contentPadding:
-                                  const EdgeInsets.fromLTRB(30, 20, 20, 20),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25),
-                                borderSide:
-                                    const BorderSide(color: Colors.white),
-                              ),
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Buscar Pokemon',
+                            hintStyle:
+                                const TextStyle(color: Color(0xFF767676)),
+                            filled: true,
+                            fillColor: Colors.white,
+                            contentPadding:
+                                const EdgeInsets.fromLTRB(30, 20, 20, 20),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25),
+                              borderSide: const BorderSide(color: Colors.white),
                             ),
                           ),
+                          onChanged: (value) {
+                            if (!value.isBlank()) {
+                              controller.getPokemonTyped(value);
+                            }
+                          },
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 20, right: 20),
-                        child: Icon(
-                          Icons.favorite,
-                          size: 30,
+                    ),
+                    GestureDetector(
+                        child: const Padding(
+                          padding: EdgeInsets.only(left: 20, right: 20),
+                          child: Icon(
+                            Icons.favorite,
+                            size: 30,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  ValueListenableBuilder<PokedexPageState>(
-                    valueListenable: controller.state,
-                    builder: (context, state, _) {
-                      switch (state) {
-                        case PokedexPageState.loading:
-                          return Padding(
+                        onTap: () {
+                          _showSnackBar(
+                              'TELA DE FAVORITOS AINDA NÃO IMPLEMENTADA');
+                        }),
+                  ],
+                ),
+                ValueListenableBuilder<PokedexPageState>(
+                  valueListenable: controller,
+                  builder: (context, state, _) {
+                    switch (state) {
+                      case PokedexPageState.loading:
+                        return Expanded(
+                          child: Padding(
                             padding: const EdgeInsets.only(top: 100),
                             child: Container(
                               height: 50,
@@ -115,13 +156,15 @@ class _PokedexPageState extends State<PokedexPage> {
                                 ),
                               ),
                             ),
-                          );
-                        case PokedexPageState.success:
-                          return Container(
+                          ),
+                        );
+                      case PokedexPageState.success:
+                        return Expanded(
+                          child: Container(
                             margin: const EdgeInsets.only(left: 8, right: 8),
                             child: GridView.builder(
-                              physics: const NeverScrollableScrollPhysics(),
-                              shrinkWrap: true,
+                              controller: _scrollController,
+                              key: const PageStorageKey(0),
                               itemCount: controller.pokemonList.length,
                               gridDelegate:
                                   const SliverGridDelegateWithFixedCrossAxisCount(
@@ -129,20 +172,32 @@ class _PokedexPageState extends State<PokedexPage> {
                                       crossAxisSpacing: 5,
                                       crossAxisCount: 3),
                               itemBuilder: (context, index) => Padding(
-                                padding: const EdgeInsets.only(left: 5, right: 5),
+                                padding:
+                                    const EdgeInsets.only(left: 5, right: 5),
                                 child: PokedexCardWidget(
                                   pokemon: controller.pokemonList[index],
                                 ),
                               ),
                             ),
-                          );
-                        case PokedexPageState.error:
-                          return const Text('OCORREU UM ERRO. TENTE NOVAMENTE');
-                      }
-                    },
-                  ),
-                ],
-              ),
+                          ),
+                        );
+                      case PokedexPageState.genericError:
+                        return const Expanded(
+                          child: Text('OCORREU UM ERRO'),
+                        );
+
+                      case PokedexPageState.networkError:
+                        return const Expanded(
+                          child: Text('ERRO DE INTERNET'),
+                        );
+                      case PokedexPageState.notFoundPokemon:
+                        return const Expanded(
+                          child: Text('POKEMON NÃO ENCONTRADO'),
+                        );
+                    }
+                  },
+                ),
+              ],
             ),
           ),
         ),

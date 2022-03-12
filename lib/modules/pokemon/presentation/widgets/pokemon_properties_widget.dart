@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/modules/pokemon/domain/model/pokemon_model.dart';
+import 'package:pokedex_app/modules/pokemon/domain/model/pokemon/pokemon_model.dart';
 
 class PokemonPropertiesWidget extends StatelessWidget {
   const PokemonPropertiesWidget({

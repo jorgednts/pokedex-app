@@ -1,0 +1,4 @@
+
+class NotFoundPokemonException implements Exception {
+
+}

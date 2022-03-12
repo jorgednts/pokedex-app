@@ -1,0 +1,4 @@
+
+class EmptyFavoritePokemonListException implements Exception {
+
+}

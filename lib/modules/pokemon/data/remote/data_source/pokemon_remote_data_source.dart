@@ -1,6 +1,8 @@
+import 'package:pokedex_app/modules/pokemon/domain/model/pokemon/pokemon_model.dart';
 
-import 'package:pokedex_app/modules/pokemon/domain/model/pokemon_model.dart';
 
-mixin PokemonRemoteDataSource {
-  Future<List<PokemonModel>> getAllPokemons();
+abstract class PokemonRemoteDataSource {
+  Future<List<PokemonModel>> getPokemonList();
+
+  Future<PokemonModel> getPokemonTyped(String typedPokemon);
 }

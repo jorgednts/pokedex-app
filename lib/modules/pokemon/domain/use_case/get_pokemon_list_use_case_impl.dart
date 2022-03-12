@@ -1,4 +1,4 @@
-import '../model/pokemon_model.dart';
+import 'package:pokedex_app/modules/pokemon/domain/model/pokemon/pokemon_model.dart';
 import '../repository/pokemon_repository.dart';
 import 'get_pokemon_list_use_case.dart';
 
