@@ -1,6 +1,7 @@
 enum PokedexPageState {
   loading,
-  success,
+  successPokemonList,
+  successPokemonTyped,
   genericError,
   networkError,
   notFoundPokemon,

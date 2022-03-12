@@ -31,7 +31,7 @@ class PokemonListController extends ValueNotifier<PokedexPageState> {
       final pokemons = await _getPokemonListUseCase.call();
       pokemonList.addAll(pokemons);
       isFetchData = false;
-      value = PokedexPageState.success;
+      value = PokedexPageState.successPokemonList;
     } on GenericErrorStatusCodeException {
       value = PokedexPageState.genericError;
       isFetchData = false;
@@ -53,7 +53,7 @@ class PokemonListController extends ValueNotifier<PokedexPageState> {
       final pokemon =
           await _getPokemonTypedUseCase.call(pokemonTyped.toLowerCase());
       pokemonList.add(pokemon);
-      value = PokedexPageState.success;
+      value = PokedexPageState.successPokemonTyped;
     } on GenericErrorStatusCodeException{
       value = PokedexPageState.genericError;
     } on NetworkErrorException {

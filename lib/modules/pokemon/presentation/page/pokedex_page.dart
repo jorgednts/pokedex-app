@@ -7,6 +7,7 @@ import 'package:pokedex_app/modules/pokemon/domain/repository/pokemon_repository
 import 'package:pokedex_app/modules/pokemon/domain/use_case/get_pokemon_list_use_case.dart';
 import 'package:pokedex_app/modules/pokemon/domain/use_case/get_pokemon_typed_use_case.dart';
 import 'package:pokedex_app/modules/pokemon/external/remote_data_source/pokemon_remote_data_source_impl.dart';
+import 'package:pokedex_app/modules/pokemon/presentation/common/pokemon_list_widget.dart';
 import 'package:pokedex_app/modules/pokemon/presentation/controllers/pokemon_list_controller.dart';
 import 'package:pokedex_app/modules/pokemon/presentation/page/pokedex_page_state.dart';
 import 'package:pokedex_app/modules/pokemon/presentation/widgets/pokedex_card_widget.dart';
@@ -51,8 +52,7 @@ class _PokedexPageState extends State<PokedexPage> {
     _scrollController.addListener(() {
       if (_scrollController.offset >=
               _scrollController.position.maxScrollExtent &&
-          !_scrollController.position.outOfRange &&
-          _scrollController.positions.length != 1) {
+          !_scrollController.position.outOfRange) {
         controller.getPokemonList();
       }
     });
@@ -158,29 +158,16 @@ class _PokedexPageState extends State<PokedexPage> {
                             ),
                           ),
                         );
-                      case PokedexPageState.success:
-                        return Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.only(left: 8, right: 8),
-                            child: GridView.builder(
-                              controller: _scrollController,
-                              key: const PageStorageKey(0),
-                              itemCount: controller.pokemonList.length,
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                      mainAxisSpacing: 5,
-                                      crossAxisSpacing: 5,
-                                      crossAxisCount: 3),
-                              itemBuilder: (context, index) => Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 5, right: 5),
-                                child: PokedexCardWidget(
-                                  pokemon: controller.pokemonList[index],
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
+                      case PokedexPageState.successPokemonList:
+                        return PokemonListWidget(
+                            scrollController: _scrollController,
+                            pokemonList: controller.pokemonList);
+
+                      case PokedexPageState.successPokemonTyped:
+                        return PokemonListWidget(
+                            scrollController: null,
+                            pokemonList: controller.pokemonList);
+
                       case PokedexPageState.genericError:
                         return const Expanded(
                           child: Text('OCORREU UM ERRO'),
