@@ -10,7 +10,7 @@ class PokemonPropertiesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Row(
