@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex_app/modules/pokemon/data/remote/data_source/pokemon_remote_data_source.dart';
 import 'package:pokedex_app/modules/pokemon/data/repository/pokemon_repository_impl.dart';
@@ -28,6 +29,7 @@ class _PokedexPageState extends State<PokedexPage> {
   late List<PokemonModel> pokemonList;
   late ScrollController _scrollController;
   late GetPokemonTypedUseCase getPokemonTypedUseCase;
+  late TextEditingController textEditingController;
 
   @override
   void initState() {
@@ -44,6 +46,12 @@ class _PokedexPageState extends State<PokedexPage> {
         getPokemonTypedUseCase: getPokemonTypedUseCase);
     _setScrollController();
     controller.getPokemonList();
+    textEditingController = TextEditingController();
+    textEditingController.addListener(() {
+      if(textEditingController.text.isEmpty){
+        controller.getPokemonList();
+      }
+    });
   }
 
   void _setScrollController() {
@@ -103,6 +111,12 @@ class _PokedexPageState extends State<PokedexPage> {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: TextField(
+                          onEditingComplete: (){
+                            if(textEditingController.text.isEmpty){
+                              controller.getPokemonList();
+                            }
+                          },
+                          controller: textEditingController,
                           decoration: InputDecoration(
                             hintText: 'Buscar Pokemon',
                             hintStyle:
@@ -116,10 +130,8 @@ class _PokedexPageState extends State<PokedexPage> {
                               borderSide: const BorderSide(color: Colors.white),
                             ),
                           ),
-                          onChanged: (value) {
-                            if (!value.isBlank()) {
-                              controller.getPokemonTyped(value);
-                            }
+                          onChanged: (textTyped) {
+                              controller.getPokemonTyped(textTyped);
                           },
                         ),
                       ),
@@ -166,7 +178,7 @@ class _PokedexPageState extends State<PokedexPage> {
                       case PokedexPageState.successPokemonTyped:
                         return PokemonListWidget(
                             scrollController: null,
-                            pokemonList: controller.pokemonList);
+                            pokemonList: controller.pokemonsTyped);
 
                       case PokedexPageState.genericError:
                         return const Expanded(

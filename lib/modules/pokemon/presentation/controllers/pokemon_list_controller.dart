@@ -4,6 +4,8 @@ import 'package:pokedex_app/modules/pokemon/domain/exception/network_error_excep
 import 'package:pokedex_app/modules/pokemon/domain/exception/not_found_pokemon_exception.dart';
 import 'package:pokedex_app/modules/pokemon/domain/model/pokemon/pokemon_model.dart';
 import 'package:pokedex_app/modules/pokemon/domain/use_case/get_pokemon_typed_use_case.dart';
+import 'package:pokedex_app/modules/pokemon/utils/string_extensions.dart';
+
 
 import '../../domain/use_case/get_pokemon_list_use_case.dart';
 import '../page/pokedex_page_state.dart';
@@ -18,8 +20,10 @@ class PokemonListController extends ValueNotifier<PokedexPageState> {
   final GetPokemonListUseCase _getPokemonListUseCase;
   final GetPokemonTypedUseCase _getPokemonTypedUseCase;
 
+
   List<PokemonModel> pokemonList = [];
   bool isFetchData = false;
+  List<PokemonModel> pokemonsTyped = [];
 
   Future<void> getPokemonList() async {
     if (isFetchData) {
@@ -45,21 +49,20 @@ class PokemonListController extends ValueNotifier<PokedexPageState> {
   }
 
   Future<void> getPokemonTyped(String pokemonTyped) async {
-    print(pokemonList.length);
-    pokemonList.clear();
-    print(pokemonList.length);
-    value = PokedexPageState.loading;  
     try {
-      final pokemon =
-          await _getPokemonTypedUseCase.call(pokemonTyped.toLowerCase());
-      pokemonList.add(pokemon);
-      value = PokedexPageState.successPokemonTyped;
+      pokemonsTyped.clear();
+      if(!pokemonTyped.isBlank()){
+        final pokemon =
+        await _getPokemonTypedUseCase.call(pokemonTyped.toLowerCase());
+        pokemonsTyped.add(pokemon);
+        value = PokedexPageState.successPokemonTyped;
+      }
+    } on NotFoundPokemonException {
+      value = PokedexPageState.notFoundPokemon;
     } on GenericErrorStatusCodeException{
       value = PokedexPageState.genericError;
     } on NetworkErrorException {
       value = PokedexPageState.networkError;
-    } on NotFoundPokemonException {
-      value = PokedexPageState.notFoundPokemon;
     } catch (e) {
       value = PokedexPageState.genericError;
     }
