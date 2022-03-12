@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex_app/modules/pokemon/data/remote/data_source/pokemon_remote_data_source.dart';
 import 'package:pokedex_app/modules/pokemon/data/repository/pokemon_repository_impl.dart';
@@ -11,8 +10,6 @@ import 'package:pokedex_app/modules/pokemon/external/remote_data_source/pokemon_
 import 'package:pokedex_app/modules/pokemon/presentation/common/pokemon_list_widget.dart';
 import 'package:pokedex_app/modules/pokemon/presentation/controllers/pokemon_list_controller.dart';
 import 'package:pokedex_app/modules/pokemon/presentation/page/pokedex_page_state.dart';
-import 'package:pokedex_app/modules/pokemon/presentation/widgets/pokedex_card_widget.dart';
-import 'package:pokedex_app/modules/pokemon/utils/string_extensions.dart';
 
 class PokedexPage extends StatefulWidget {
   const PokedexPage({Key? key}) : super(key: key);

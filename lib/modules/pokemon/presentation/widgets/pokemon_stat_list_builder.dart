@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_app/modules/pokemon/domain/model/pokemon/pokemon_model.dart';
 
-
 class PokemonStatListBuilder extends StatelessWidget {
   const PokemonStatListBuilder({
     required this.pokemon,
@@ -21,8 +20,9 @@ class PokemonStatListBuilder extends StatelessWidget {
             padding: const EdgeInsets.only(left: 40),
             child: Text(
               '${getStat()}',
-              style: const TextStyle(
-                  color: Color(0xFFEC0344),
+              style: TextStyle(
+                  color: pokemon
+                      .mapPokemonTypeToColor(pokemon.colorNameByFirstType),
                   fontSize: 16,
                   fontWeight: FontWeight.bold),
             ),
@@ -39,13 +39,15 @@ class PokemonStatListBuilder extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(width:20),
+        const SizedBox(width: 20),
         Container(
           width: 200,
           child: LinearProgressIndicator(
-            backgroundColor: const Color(0xFFEC0344).withAlpha(50),
-            color: const Color(0xFFEC0344),
-            value: pokemon.statList[index].base/100,
+            backgroundColor: pokemon
+                .mapPokemonTypeToColor(pokemon.colorNameByFirstType)
+                .withAlpha(50),
+            color: pokemon.mapPokemonTypeToColor(pokemon.colorNameByFirstType),
+            value: pokemon.statList[index].base / 100,
           ),
         )
       ]);

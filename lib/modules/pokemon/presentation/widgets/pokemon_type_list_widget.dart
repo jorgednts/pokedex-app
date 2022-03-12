@@ -26,7 +26,7 @@ class PokemonTypeList extends StatelessWidget {
                         color: Colors.white),
                   ),
                   backgroundColor:
-                  const Color(0xFFEC0344),
+                  pokemon.mapPokemonTypeToColor(pokemon.typeList[index]),
                 ),
               ),
             ),

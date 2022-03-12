@@ -5,8 +5,6 @@ import 'package:pokedex_app/modules/pokemon/presentation/widgets/pokemon_propert
 import 'package:pokedex_app/modules/pokemon/presentation/widgets/pokemon_stat_list_builder.dart';
 import 'package:pokedex_app/modules/pokemon/presentation/widgets/pokemon_type_list_widget.dart';
 
-
-
 class PokemonDetailPage extends StatelessWidget {
   const PokemonDetailPage({
     required this.pokemon,
@@ -17,7 +15,8 @@ class PokemonDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         extendBodyBehindAppBar: true,
-        backgroundColor: const Color(0xFFEC0344),
+        backgroundColor:
+            pokemon.mapPokemonTypeToColor(pokemon.colorNameByFirstType),
         appBar: AppBar(
           title: Text(pokemon.name,
               style: const TextStyle(fontWeight: FontWeight.w700)),
@@ -27,7 +26,7 @@ class PokemonDetailPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(15),
               child: Text(
-                '#${pokemon.id.toString()}',
+                pokemon.setPokemonId(pokemon.id),
                 style:
                     const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
               ),
@@ -47,18 +46,24 @@ class PokemonDetailPage extends StatelessWidget {
                       margin: const EdgeInsets.all(5),
                       color: Colors.white,
                       shape: RoundedRectangleBorder(
-                        side: const BorderSide(
-                            color: Color(0xFFEC0344), width: 1),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Column(
                         children: [
                           PokemonTypeList(pokemon: pokemon),
                           PokemonPropertiesWidget(pokemon: pokemon),
-                          const Text(
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: Text(
+                              pokemon.description,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          Text(
                             'Base Stats',
                             style: TextStyle(
-                                color: Color(0xFFEC0344),
+                                color: pokemon.mapPokemonTypeToColor(
+                                    pokemon.colorNameByFirstType),
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -76,6 +81,7 @@ class PokemonDetailPage extends StatelessWidget {
                               index: index,
                             ),
                           ),
+                          const SizedBox(height: 15),
                         ],
                       ),
                     ),
