@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/modules/pokemon/domain/exception/generic_error_status_code_exception.dart';
-import 'package:pokedex_app/modules/pokemon/domain/exception/network_error_exception.dart';
-import 'package:pokedex_app/modules/pokemon/domain/exception/not_found_pokemon_exception.dart';
-import 'package:pokedex_app/modules/pokemon/domain/model/pokemon/pokemon_model.dart';
-import 'package:pokedex_app/modules/pokemon/domain/use_case/get_pokemon_typed_use_case.dart';
-import 'package:pokedex_app/modules/pokemon/utils/string_extensions.dart';
 
-
+import '../../domain/exception/generic_error_status_code_exception.dart';
+import '../../domain/exception/network_error_exception.dart';
+import '../../domain/exception/not_found_pokemon_exception.dart';
+import '../../domain/model/pokemon/pokemon_model.dart';
 import '../../domain/use_case/get_pokemon_list_use_case.dart';
+import '../../domain/use_case/get_pokemon_typed_use_case.dart';
+import '../../utils/string_extensions.dart';
 import '../page/pokedex_page_state.dart';
 
 class PokemonListController extends ValueNotifier<PokedexPageState> {

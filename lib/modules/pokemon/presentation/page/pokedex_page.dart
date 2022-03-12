@@ -1,15 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/modules/pokemon/data/remote/data_source/pokemon_remote_data_source.dart';
-import 'package:pokedex_app/modules/pokemon/data/repository/pokemon_repository_impl.dart';
-import 'package:pokedex_app/modules/pokemon/domain/model/pokemon/pokemon_model.dart';
-import 'package:pokedex_app/modules/pokemon/domain/repository/pokemon_repository.dart';
-import 'package:pokedex_app/modules/pokemon/domain/use_case/get_pokemon_list_use_case.dart';
-import 'package:pokedex_app/modules/pokemon/domain/use_case/get_pokemon_typed_use_case.dart';
-import 'package:pokedex_app/modules/pokemon/external/remote_data_source/pokemon_remote_data_source_impl.dart';
-import 'package:pokedex_app/modules/pokemon/presentation/common/pokemon_list_widget.dart';
-import 'package:pokedex_app/modules/pokemon/presentation/controllers/pokemon_list_controller.dart';
-import 'package:pokedex_app/modules/pokemon/presentation/page/pokedex_page_state.dart';
+import '../../data/remote/data_source/pokemon_remote_data_source.dart';
+import '../../data/repository/pokemon_repository_impl.dart';
+import '../../domain/model/pokemon/pokemon_model.dart';
+import '../../domain/repository/pokemon_repository.dart';
+import '../../domain/use_case/get_pokemon_list_use_case.dart';
+import '../../domain/use_case/get_pokemon_typed_use_case.dart';
+import '../../external/remote_data_source/pokemon_remote_data_source_impl.dart';
+import '../common/error_text_widget.dart';
+import '../common/pokemon_list_widget.dart';
+import '../controllers/pokemon_list_controller.dart';
+import 'pokedex_page_state.dart';
 
 class PokedexPage extends StatefulWidget {
   const PokedexPage({Key? key}) : super(key: key);
@@ -45,7 +46,7 @@ class _PokedexPageState extends State<PokedexPage> {
     controller.getPokemonList();
     textEditingController = TextEditingController();
     textEditingController.addListener(() {
-      if(textEditingController.text.isEmpty){
+      if (textEditingController.text.isEmpty) {
         controller.getPokemonList();
       }
     });
@@ -108,8 +109,8 @@ class _PokedexPageState extends State<PokedexPage> {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: TextField(
-                          onEditingComplete: (){
-                            if(textEditingController.text.isEmpty){
+                          onEditingComplete: () {
+                            if (textEditingController.text.isEmpty) {
                               controller.getPokemonList();
                             }
                           },
@@ -128,7 +129,7 @@ class _PokedexPageState extends State<PokedexPage> {
                             ),
                           ),
                           onChanged: (textTyped) {
-                              controller.getPokemonTyped(textTyped);
+                            controller.getPokemonTyped(textTyped);
                           },
                         ),
                       ),
@@ -178,18 +179,16 @@ class _PokedexPageState extends State<PokedexPage> {
                             pokemonList: controller.pokemonsTyped);
 
                       case PokedexPageState.genericError:
-                        return const Expanded(
-                          child: Text('OCORREU UM ERRO'),
-                        );
+                        return const ErrorTextWidget(
+                            errorText: 'OCORREU UM ERRO :(');
 
                       case PokedexPageState.networkError:
-                        return const Expanded(
-                          child: Text('ERRO DE INTERNET'),
-                        );
+                        return const ErrorTextWidget(
+                            errorText: 'ERRO DE INTERNET :(');
+
                       case PokedexPageState.notFoundPokemon:
-                        return const Expanded(
-                          child: Text('POKEMON NÃO ENCONTRADO'),
-                        );
+                        return const ErrorTextWidget(
+                            errorText: 'POKEMON NÃO ENCONTRADO :(');
                     }
                   },
                 ),
