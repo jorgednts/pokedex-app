@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/modules/pokedex_constants/pokedex_constants_colors.dart';
-import 'package:pokedex_app/modules/pokemon/constants/pokemon_constants_images.dart';
 
 import '../../../../generated/l10n.dart';
+import '../../../pokedex_constants/pokedex_constants_colors.dart';
+import '../../constants/pokemon_constants_images.dart';
 import '../../domain/model/pokemon/pokemon_model.dart';
 
 class PokemonPropertiesWidget extends StatelessWidget {
