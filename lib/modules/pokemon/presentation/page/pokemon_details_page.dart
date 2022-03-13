@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+
+import '../../../../generated/l10n.dart';
 import '../../domain/model/pokemon/pokemon_model.dart';
 import '../common/pokemon_image_widget.dart';
 import '../common/pokemon_properties_widget.dart';
 import '../common/pokemon_stat_list_builder.dart';
 import '../common/pokemon_type_list_widget.dart';
+
 
 
 class PokemonDetailPage extends StatelessWidget {
@@ -61,7 +64,7 @@ class PokemonDetailPage extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            'Base Stats',
+                            S.of(context).baseStatsText,
                             style: TextStyle(
                                 color: pokemon.mapPokemonTypeToColor(
                                     pokemon.colorNameByFirstType),

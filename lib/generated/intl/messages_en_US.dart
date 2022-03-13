@@ -22,7 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "baseStatText": MessageLookupByLibrary.simpleMessage("Base Stats"),
+        "baseStatsText": MessageLookupByLibrary.simpleMessage("Base Stats"),
         "genericErrorPokedexText":
             MessageLookupByLibrary.simpleMessage("AN ERROR HAS OCCURRED :("),
         "heightPropertyText": MessageLookupByLibrary.simpleMessage("Height"),

@@ -131,10 +131,10 @@ class S {
   }
 
   /// `Base Stats`
-  String get baseStatText {
+  String get baseStatsText {
     return Intl.message(
       'Base Stats',
-      name: 'baseStatText',
+      name: 'baseStatsText',
       desc: '',
       args: [],
     );
