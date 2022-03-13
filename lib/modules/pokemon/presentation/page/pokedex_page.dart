@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+
 import '../../../../generated/l10n.dart';
+import '../../constants/pokemon_constants_images.dart';
 import '../../data/remote/data_source/pokemon_remote_data_source.dart';
 import '../../data/repository/pokemon_repository_impl.dart';
 import '../../domain/model/pokemon/pokemon_model.dart';
@@ -89,7 +91,7 @@ class _PokedexPageState extends State<PokedexPage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 48, right: 13),
-                      child: Image.asset('assets/images/logo_icon.png'),
+                      child: Image.asset(PokemonConstantsImages.logoIcon),
                     ),
                     Text(S.of(context).pageTitle,
                         style: const TextStyle(

@@ -1,5 +1,7 @@
 class PokemonConstantsImages {
   static const logoIoasys = 'assets/images/logo_ioasys.png';
+  static const logoHome = 'assets/images/logo_home.png';
+  static const logoIcon = 'assets/images/logo_icon.png';
   static const backArrow = 'assets/images/back_arrow.png';
   static const close = 'assets/images/close.png';
   static const downArrow = 'assets/images/down_arrow.png';
