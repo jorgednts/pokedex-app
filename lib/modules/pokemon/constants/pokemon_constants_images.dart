@@ -2,6 +2,7 @@ class PokemonConstantsImages {
   static const logoIoasys = 'assets/images/logo_ioasys.png';
   static const logoHome = 'assets/images/logo_home.png';
   static const logoIcon = 'assets/images/logo_icon.png';
+  static const pokeball = 'assets/images/pokeball.png';
   static const backArrow = 'assets/images/back_arrow.png';
   static const close = 'assets/images/close.png';
   static const downArrow = 'assets/images/down_arrow.png';
@@ -13,7 +14,6 @@ class PokemonConstantsImages {
   static const heart = 'assets/images/heart.png';
   static const loading = 'assets/images/loading.png';
   static const error = 'assets/images/error.png';
-  static const pokeball = 'assets/images/pokeball.png';
   static const back = 'assets/images/back.png';
   static const down = 'assets/images/down.png';
   static const emptyHeart = 'assets/images/empty_heart.png';

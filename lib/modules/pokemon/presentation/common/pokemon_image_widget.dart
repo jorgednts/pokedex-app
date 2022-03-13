@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:pokedex_app/modules/pokemon/domain/model/pokemon/pokemon_model.dart';
+import '../../constants/pokemon_constants_images.dart';
+import '../../domain/model/pokemon/pokemon_model.dart';
 
 
 class PokemonImageWidget extends StatelessWidget {
@@ -18,7 +19,7 @@ class PokemonImageWidget extends StatelessWidget {
             top: 50,
             right: 2,
             child: Image.asset(
-              'assets/images/pokeball.png',
+              PokemonConstantsImages.pokeball,
               height: 130,
               width: 130,
               color: Colors.blueGrey.withOpacity(1),
