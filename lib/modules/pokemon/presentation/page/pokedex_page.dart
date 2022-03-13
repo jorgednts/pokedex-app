@@ -91,8 +91,8 @@ class _PokedexPageState extends State<PokedexPage> {
                       padding: const EdgeInsets.only(left: 48, right: 13),
                       child: Image.asset('assets/images/logo_icon.png'),
                     ),
-                    const Text('ioasys pokédex',
-                        style: TextStyle(
+                    Text(S.of(context).pageTitle,
+                        style: const TextStyle(
                           color: Color(0xFFEC0344),
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -104,49 +104,53 @@ class _PokedexPageState extends State<PokedexPage> {
                     top: 30,
                   ),
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: TextField(
-                          onEditingComplete: () {
-                            if (textEditingController.text.isEmpty) {
-                              controller.getPokemonList();
-                            }
-                          },
-                          controller: textEditingController,
-                          decoration: InputDecoration(
-                            hintText: S.of(context).textFieldPokedexTitle,
-                            hintStyle:
-                                const TextStyle(color: Color(0xFF767676)),
-                            filled: true,
-                            fillColor: Colors.white,
-                            contentPadding:
-                                const EdgeInsets.fromLTRB(30, 20, 20, 20),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(25),
-                              borderSide: const BorderSide(color: Colors.white),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: TextField(
+                            onEditingComplete: () {
+                              if (textEditingController.text.isEmpty) {
+                                controller.getPokemonList();
+                              }
+                            },
+                            controller: textEditingController,
+                            decoration: InputDecoration(
+                              hintText: S.of(context).textFieldPokedexTitle,
+                              hintStyle:
+                                  const TextStyle(color: Color(0xFF767676)),
+                              filled: true,
+                              fillColor: Colors.white,
+                              contentPadding:
+                                  const EdgeInsets.fromLTRB(30, 20, 20, 20),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(25),
+                                borderSide:
+                                    const BorderSide(color: Colors.white),
+                              ),
                             ),
+                            onChanged: (textTyped) {
+                              controller.getPokemonTyped(textTyped);
+                            },
                           ),
-                          onChanged: (textTyped) {
-                            controller.getPokemonTyped(textTyped);
-                          },
                         ),
                       ),
-                    ),
-                    GestureDetector(
-                        child: const Padding(
-                          padding: EdgeInsets.only(left: 20, right: 20),
-                          child: Icon(
-                            Icons.favorite,
-                            size: 30,
+                      GestureDetector(
+                          child: const Padding(
+                            padding: EdgeInsets.only(left: 20, right: 20),
+                            child: Icon(
+                              Icons.favorite,
+                              size: 30,
+                            ),
                           ),
-                        ),
-                        onTap: () {
-                          _showSnackBar(S.of(context).snackBarText);
-                        }),
-                  ],
+                          onTap: () {
+                            _showSnackBar(S.of(context).snackBarText);
+                          }),
+                    ],
+                  ),
                 ),
                 ValueListenableBuilder<PokedexPageState>(
                   valueListenable: controller,

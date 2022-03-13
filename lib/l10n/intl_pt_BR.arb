@@ -1,6 +1,7 @@
 {
   "@@locale": "pt_BR",
   "textFieldPokedexTitle": "Buscar Pokemon",
+  "pageTitle": "ioasys pokedex",
   "snackBarText": "TELA DE FAVORITOS AINDA NÃO IMPLEMENTADA",
   "genericErrorPokedexText": "OCORREU UM ERRO :(",
   "networkErrorPokedexText": "ERRO DE INTERNET :(",

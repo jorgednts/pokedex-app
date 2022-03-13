@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("INTERNET ERROR :("),
         "notFoundPokemonErrorPokedexText":
             MessageLookupByLibrary.simpleMessage("POKEMON NOT FOUND :("),
+        "pageTitle": MessageLookupByLibrary.simpleMessage("ioasys pokedex"),
         "snackBarText": MessageLookupByLibrary.simpleMessage(
             "FAVORITES SCREEN NOT IMPLEMENTED YET!"),
         "textFieldPokedexTitle":

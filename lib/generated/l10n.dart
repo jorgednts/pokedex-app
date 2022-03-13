@@ -50,6 +50,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `ioasys pokedex`
+  String get pageTitle {
+    return Intl.message(
+      'ioasys pokedex',
+      name: 'pageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Search Pokemon`
   String get textFieldPokedexTitle {
     return Intl.message(

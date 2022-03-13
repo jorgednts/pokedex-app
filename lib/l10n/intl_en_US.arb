@@ -1,5 +1,6 @@
 {
   "@@locale": "en_US",
+  "pageTitle": "ioasys pokedex",
   "textFieldPokedexTitle": "Search Pokemon",
   "snackBarText": "FAVORITES SCREEN NOT IMPLEMENTED YET!",
   "genericErrorPokedexText": "AN ERROR HAS OCCURRED :(",
