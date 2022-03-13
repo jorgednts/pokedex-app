@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex_app/generated/l10n.dart';
 import '../../data/remote/data_source/pokemon_remote_data_source.dart';
 import '../../data/repository/pokemon_repository_impl.dart';
 import '../../domain/model/pokemon/pokemon_model.dart';
@@ -116,7 +117,7 @@ class _PokedexPageState extends State<PokedexPage> {
                           },
                           controller: textEditingController,
                           decoration: InputDecoration(
-                            hintText: 'Buscar Pokemon',
+                            hintText: S.of(context).textFieldPokedexTitle,
                             hintStyle:
                                 const TextStyle(color: Color(0xFF767676)),
                             filled: true,
@@ -143,8 +144,7 @@ class _PokedexPageState extends State<PokedexPage> {
                           ),
                         ),
                         onTap: () {
-                          _showSnackBar(
-                              'TELA DE FAVORITOS AINDA NÃO IMPLEMENTADA');
+                          _showSnackBar(S.of(context).snackBarText);
                         }),
                   ],
                 ),
@@ -179,16 +179,17 @@ class _PokedexPageState extends State<PokedexPage> {
                             pokemonList: controller.pokemonsTyped);
 
                       case PokedexPageState.genericError:
-                        return const ErrorTextWidget(
-                            errorText: 'OCORREU UM ERRO :(');
+                        return ErrorTextWidget(
+                            errorText: S.of(context).genericErrorPokedexText);
 
                       case PokedexPageState.networkError:
-                        return const ErrorTextWidget(
-                            errorText: 'ERRO DE INTERNET :(');
+                        return ErrorTextWidget(
+                            errorText: S.of(context).networkErrorPokedexText);
 
                       case PokedexPageState.notFoundPokemon:
-                        return const ErrorTextWidget(
-                            errorText: 'POKEMON NÃO ENCONTRADO :(');
+                        return ErrorTextWidget(
+                            errorText:
+                                S.of(context).notFoundPokemonErrorPokedexText);
                     }
                   },
                 ),

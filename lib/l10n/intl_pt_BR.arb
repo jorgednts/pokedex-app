@@ -1,0 +1,8 @@
+{
+  "@@locale": "pt_BR",
+  "textFieldPokedexTitle": "Buscar Pokemon",
+  "snackBarText": "TELA DE FAVORITOS AINDA NÃO IMPLEMENTADA",
+  "genericErrorPokedexText": "OCORREU UM ERRO :(",
+  "networkErrorPokedexText": "ERRO DE INTERNET :(",
+  "notFoundPokemonErrorPokedexText": "POKEMON NÃO ENCONTRADO :("
+}

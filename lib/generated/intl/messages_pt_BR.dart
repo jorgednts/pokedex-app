@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a en_US locale. All the
+// This is a library that provides messages for a pt_BR locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,19 +18,19 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'en_US';
+  String get localeName => 'pt_BR';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "genericErrorPokedexText":
-            MessageLookupByLibrary.simpleMessage("AN ERROR HAS OCCURRED :("),
+            MessageLookupByLibrary.simpleMessage("OCORREU UM ERRO :("),
         "networkErrorPokedexText":
-            MessageLookupByLibrary.simpleMessage("INTERNET ERROR :("),
+            MessageLookupByLibrary.simpleMessage("ERRO DE INTERNET :("),
         "notFoundPokemonErrorPokedexText":
-            MessageLookupByLibrary.simpleMessage("POKEMON NOT FOUND :("),
+            MessageLookupByLibrary.simpleMessage("POKEMON NÃO ENCONTRADO :("),
         "snackBarText": MessageLookupByLibrary.simpleMessage(
-            "FAVORITES SCREEN NOT IMPLEMENTED YET!"),
+            "TELA DE FAVORITOS AINDA NÃO IMPLEMENTADA"),
         "textFieldPokedexTitle":
-            MessageLookupByLibrary.simpleMessage("Search Pokemon")
+            MessageLookupByLibrary.simpleMessage("Buscar Pokemon")
       };
 }

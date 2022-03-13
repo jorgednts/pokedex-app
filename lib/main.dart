@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:pokedex_app/generated/l10n.dart';
+
 import 'modules/splash/presentation/page/splash_page.dart';
 
 void main() {
@@ -26,12 +29,17 @@ class MyApp extends StatelessWidget {
           listTileTheme: const ListTileThemeData(iconColor: Color(0xFFEC0344)),
         ),
         home: const SplashPage(),
-        // initialRoute: '/',
-        // routes: {
-        //   '/':(context) => const SplashPage(),
-        //   '/pokedex': (context) => const PokedexPage(),
-        //   '/pokemon-details': (context) => const Pokedex
-        //},
+        localizationsDelegates: const [
+          // 1
+          S.delegate,
+          // 2
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+
+
       );
 }
 

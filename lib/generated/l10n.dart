@@ -46,15 +46,70 @@ class S {
     return instance!;
   }
 
-  static S? maybeOf(BuildContext context) => Localizations.of<S>(context, S);
+  static S? maybeOf(BuildContext context) {
+    return Localizations.of<S>(context, S);
+  }
+
+  /// `Search Pokemon`
+  String get textFieldPokedexTitle {
+    return Intl.message(
+      'Search Pokemon',
+      name: 'textFieldPokedexTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `FAVORITES SCREEN NOT IMPLEMENTED YET!`
+  String get snackBarText {
+    return Intl.message(
+      'FAVORITES SCREEN NOT IMPLEMENTED YET!',
+      name: 'snackBarText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `AN ERROR HAS OCCURRED :(`
+  String get genericErrorPokedexText {
+    return Intl.message(
+      'AN ERROR HAS OCCURRED :(',
+      name: 'genericErrorPokedexText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `INTERNET ERROR :(`
+  String get networkErrorPokedexText {
+    return Intl.message(
+      'INTERNET ERROR :(',
+      name: 'networkErrorPokedexText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `POKEMON NOT FOUND :(`
+  String get notFoundPokemonErrorPokedexText {
+    return Intl.message(
+      'POKEMON NOT FOUND :(',
+      name: 'notFoundPokemonErrorPokedexText',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   const AppLocalizationDelegate();
 
-  List<Locale> get supportedLocales => const <Locale>[
+  List<Locale> get supportedLocales {
+    return const <Locale>[
       Locale.fromSubtags(languageCode: 'en', countryCode: 'US'),
+      Locale.fromSubtags(languageCode: 'pt', countryCode: 'BR'),
     ];
+  }
 
   @override
   bool isSupported(Locale locale) => _isSupported(locale);
