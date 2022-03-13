@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:pokedex_app/generated/l10n.dart';
-import 'package:pokedex_app/modules/pokedex_constants/pokedex_constants_colors.dart';
-import 'package:pokedex_app/modules/pokedex_constants/pokedex_constants_fonts.dart';
+import 'generated/l10n.dart';
+import 'modules/pokedex_constants/pokedex_constants_colors.dart';
+import 'modules/pokedex_constants/pokedex_constants_fonts.dart';
 
 import 'modules/splash/presentation/page/splash_page.dart';
 
