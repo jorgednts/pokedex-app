@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_app/modules/pokedex_constants/pokedex_constants_colors.dart';
+import 'package:pokedex_app/modules/pokemon/constants/pokemon_constants_images.dart';
 
 import '../../../../generated/l10n.dart';
 import '../../domain/model/pokemon/pokemon_model.dart';
@@ -24,7 +26,7 @@ class PokemonPropertiesWidget extends StatelessWidget {
                   Row(
                     children: [
                       Image.asset(
-                        'assets/images/weight_icon.png',
+                        PokemonConstantsImages.weightIcon,
                         width: 16,
                         height: 16,
                       ),
@@ -41,8 +43,9 @@ class PokemonPropertiesWidget extends StatelessWidget {
                   const SizedBox(height: 12),
                   Text(
                     S.of(context).weightPropertyText,
-                    style:
-                        const TextStyle(fontSize: 12, color: Color(0xFFB2B2B2)),
+                    style: const TextStyle(
+                        fontSize: 12,
+                        color: PokedexConstantsColors.propertyTextColor),
                   ),
                 ],
               ),
@@ -51,7 +54,7 @@ class PokemonPropertiesWidget extends StatelessWidget {
                   Row(
                     children: [
                       Image.asset(
-                        'assets/images/height_icon.png',
+                        PokemonConstantsImages.heightIcon,
                         width: 16,
                         height: 16,
                       ),
@@ -65,8 +68,9 @@ class PokemonPropertiesWidget extends StatelessWidget {
                   const SizedBox(height: 12),
                   Text(
                     S.of(context).heightPropertyText,
-                    style:
-                        const TextStyle(fontSize: 12, color: Color(0xFFB2B2B2)),
+                    style: const TextStyle(
+                        fontSize: 12,
+                        color: PokedexConstantsColors.propertyTextColor),
                   ),
                 ],
               ),
@@ -80,8 +84,9 @@ class PokemonPropertiesWidget extends StatelessWidget {
                   const SizedBox(height: 12),
                   Text(
                     S.of(context).movesPropertyText,
-                    style:
-                        const TextStyle(fontSize: 12, color: Color(0xFFB2B2B2)),
+                    style: const TextStyle(
+                        fontSize: 12,
+                        color: PokedexConstantsColors.propertyTextColor),
                   ),
                 ],
               ),
