@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/modules/pokemon/domain/model/pokemon/pokemon_model.dart';
+
+import '../../../../generated/l10n.dart';
+import '../../domain/model/pokemon/pokemon_model.dart';
 
 class PokemonPropertiesWidget extends StatelessWidget {
   const PokemonPropertiesWidget({
@@ -37,9 +39,10 @@ class PokemonPropertiesWidget extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 12),
-                  const Text(
-                    'Weight',
-                    style: TextStyle(fontSize: 12, color: Color(0xFFB2B2B2)),
+                  Text(
+                    S.of(context).weightPropertyText,
+                    style:
+                        const TextStyle(fontSize: 12, color: Color(0xFFB2B2B2)),
                   ),
                 ],
               ),
@@ -60,9 +63,10 @@ class PokemonPropertiesWidget extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 12),
-                  const Text(
-                    'Height',
-                    style: TextStyle(fontSize: 12, color: Color(0xFFB2B2B2)),
+                  Text(
+                    S.of(context).heightPropertyText,
+                    style:
+                        const TextStyle(fontSize: 12, color: Color(0xFFB2B2B2)),
                   ),
                 ],
               ),
@@ -74,9 +78,10 @@ class PokemonPropertiesWidget extends StatelessWidget {
                     style: const TextStyle(fontSize: 14),
                   ),
                   const SizedBox(height: 12),
-                  const Text(
-                    'Moves',
-                    style: TextStyle(fontSize: 12, color: Color(0xFFB2B2B2)),
+                  Text(
+                    S.of(context).movesPropertyText,
+                    style:
+                        const TextStyle(fontSize: 12, color: Color(0xFFB2B2B2)),
                   ),
                 ],
               ),

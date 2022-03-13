@@ -4,5 +4,9 @@
   "snackBarText": "TELA DE FAVORITOS AINDA NÃO IMPLEMENTADA",
   "genericErrorPokedexText": "OCORREU UM ERRO :(",
   "networkErrorPokedexText": "ERRO DE INTERNET :(",
-  "notFoundPokemonErrorPokedexText": "POKEMON NÃO ENCONTRADO :("
+  "notFoundPokemonErrorPokedexText": "POKEMON NÃO ENCONTRADO :(",
+  "weightPropertyText": "Peso",
+  "heightPropertyText": "Altura",
+  "movesPropertyText": "Movimentos",
+  "baseStatText": "Estatísticas Básicas"
 }

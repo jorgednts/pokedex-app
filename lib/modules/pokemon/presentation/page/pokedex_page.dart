@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/generated/l10n.dart';
+import '../../../../generated/l10n.dart';
 import '../../data/remote/data_source/pokemon_remote_data_source.dart';
 import '../../data/repository/pokemon_repository_impl.dart';
 import '../../domain/model/pokemon/pokemon_model.dart';

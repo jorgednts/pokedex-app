@@ -99,6 +99,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Weight`
+  String get weightPropertyText {
+    return Intl.message(
+      'Weight',
+      name: 'weightPropertyText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Height`
+  String get heightPropertyText {
+    return Intl.message(
+      'Height',
+      name: 'heightPropertyText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Moves`
+  String get movesPropertyText {
+    return Intl.message(
+      'Moves',
+      name: 'movesPropertyText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Base Stats`
+  String get baseStatText {
+    return Intl.message(
+      'Base Stats',
+      name: 'baseStatText',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

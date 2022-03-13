@@ -22,8 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "baseStatText": MessageLookupByLibrary.simpleMessage("Base Stats"),
         "genericErrorPokedexText":
             MessageLookupByLibrary.simpleMessage("AN ERROR HAS OCCURRED :("),
+        "heightPropertyText": MessageLookupByLibrary.simpleMessage("Height"),
+        "movesPropertyText": MessageLookupByLibrary.simpleMessage("Moves"),
         "networkErrorPokedexText":
             MessageLookupByLibrary.simpleMessage("INTERNET ERROR :("),
         "notFoundPokemonErrorPokedexText":
@@ -31,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "snackBarText": MessageLookupByLibrary.simpleMessage(
             "FAVORITES SCREEN NOT IMPLEMENTED YET!"),
         "textFieldPokedexTitle":
-            MessageLookupByLibrary.simpleMessage("Search Pokemon")
+            MessageLookupByLibrary.simpleMessage("Search Pokemon"),
+        "weightPropertyText": MessageLookupByLibrary.simpleMessage("Weight")
       };
 }

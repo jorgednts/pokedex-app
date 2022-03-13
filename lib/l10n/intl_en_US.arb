@@ -4,5 +4,9 @@
   "snackBarText": "FAVORITES SCREEN NOT IMPLEMENTED YET!",
   "genericErrorPokedexText": "AN ERROR HAS OCCURRED :(",
   "networkErrorPokedexText": "INTERNET ERROR :(",
-  "notFoundPokemonErrorPokedexText": "POKEMON NOT FOUND :("
+  "notFoundPokemonErrorPokedexText": "POKEMON NOT FOUND :(",
+  "weightPropertyText": "Weight",
+  "heightPropertyText": "Height",
+  "movesPropertyText": "Moves",
+  "baseStatText": "Base Stats"
 }
