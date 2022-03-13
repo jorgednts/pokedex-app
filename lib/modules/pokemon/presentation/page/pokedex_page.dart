@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/modules/pokedex_constants/pokedex_constants_colors.dart';
 
 import '../../../../generated/l10n.dart';
+import '../../../pokedex_constants/pokedex_constants_colors.dart';
 import '../../constants/pokemon_constants_images.dart';
 import '../../data/remote/data_source/pokemon_remote_data_source.dart';
 import '../../data/repository/pokemon_repository_impl.dart';
@@ -123,8 +123,8 @@ class _PokedexPageState extends State<PokedexPage> {
                             controller: textEditingController,
                             decoration: InputDecoration(
                               hintText: S.of(context).textFieldPokedexTitle,
-                              hintStyle:
-                                  const TextStyle(color: Color(0xFF767676)),
+                              hintStyle: const TextStyle(
+                                  color: PokedexConstantsColors.hintTextColor),
                               filled: true,
                               fillColor: Colors.white,
                               contentPadding:
