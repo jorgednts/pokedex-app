@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pokedex_app/generated/l10n.dart';
+import 'package:pokedex_app/modules/pokedex_constants/pokedex_constants_colors.dart';
+import 'package:pokedex_app/modules/pokedex_constants/pokedex_constants_fonts.dart';
 
 import 'modules/splash/presentation/page/splash_page.dart';
 
@@ -12,21 +14,21 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) =>
-      MaterialApp(
+  Widget build(BuildContext context) => MaterialApp(
         title: 'Pokedex App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          fontFamily: 'Poppins',
+          fontFamily: PokedexConstantsFonts.poppins,
           colorScheme: ColorScheme.fromSwatch().copyWith(
-            primary: const Color(0xFFEC0344),
+            primary: PokedexConstantsColors.primaryColor,
             secondary: const Color(0xFF9E9E9E),
           ),
-          toggleableActiveColor: const Color(0xFFEC0344),
+          toggleableActiveColor: PokedexConstantsColors.primaryColor,
           iconTheme: const IconThemeData(
-            color: Color(0xFFEC0344),
+            color: PokedexConstantsColors.primaryColor,
           ),
-          listTileTheme: const ListTileThemeData(iconColor: Color(0xFFEC0344)),
+          listTileTheme: const ListTileThemeData(
+              iconColor: PokedexConstantsColors.primaryColor),
         ),
         home: const SplashPage(),
         localizationsDelegates: const [
@@ -38,8 +40,5 @@ class MyApp extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-
-
       );
 }
-

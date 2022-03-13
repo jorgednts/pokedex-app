@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex_app/modules/pokedex_constants/pokedex_constants_colors.dart';
 
 import '../../../../generated/l10n.dart';
 import '../../constants/pokemon_constants_images.dart';
@@ -95,7 +96,7 @@ class _PokedexPageState extends State<PokedexPage> {
                     ),
                     Text(S.of(context).pageTitle,
                         style: const TextStyle(
-                          color: Color(0xFFEC0344),
+                          color: PokedexConstantsColors.primaryColor,
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         )),
