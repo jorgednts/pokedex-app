@@ -34,8 +34,8 @@ class PokemonPropertiesWidget extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 3),
                         child: Text(
-                          '${(pokemon.weight / PokemonConstantsConversionFactors.
-                          weightConversionFactor).toString()}'
+                          '${(pokemon.weight/PokemonConstantsConversionFactors.
+                              weightConversionFactor).toString()}'
                           ' kg',
                           style: const TextStyle(fontSize: 14),
                         ),

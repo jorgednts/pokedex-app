@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex_app/modules/pokemon/presentation/common/pokemon_loading_state_widget.dart';
 
 import '../../../../generated/l10n.dart';
 import '../../../pokedex_constants/pokedex_constants_colors.dart';
@@ -160,21 +161,8 @@ class _PokedexPageState extends State<PokedexPage> {
                   builder: (context, state, _) {
                     switch (state) {
                       case PokedexPageState.loading:
-                        return Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 100),
-                            child: Container(
-                              height: 50,
-                              width: 50,
-                              child: const Center(
-                                child: Padding(
-                                  padding: EdgeInsets.only(top: 15),
-                                  child: CircularProgressIndicator(),
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
+                        return const PokemonLoadingStateWidget();
+
                       case PokedexPageState.successPokemonList:
                         return PokemonListWidget(
                             scrollController: _scrollController,
