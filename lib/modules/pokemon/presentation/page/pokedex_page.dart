@@ -1,7 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/modules/pokemon/presentation/common/pokedex_text_field_widget.dart';
-import 'package:pokedex_app/modules/pokemon/presentation/common/pokemon_loading_state_widget.dart';
 
 import '../../../../generated/l10n.dart';
 import '../../../pokedex_constants/pokedex_constants_colors.dart';
@@ -14,7 +12,9 @@ import '../../domain/use_case/get_pokemon_list_use_case.dart';
 import '../../domain/use_case/get_pokemon_typed_use_case.dart';
 import '../../external/remote_data_source/pokemon_remote_data_source_impl.dart';
 import '../common/error_text_widget.dart';
+import '../common/pokedex_text_field_widget.dart';
 import '../common/pokemon_list_widget.dart';
+import '../common/pokemon_loading_state_widget.dart';
 import '../controllers/pokemon_list_controller.dart';
 import 'pokedex_page_state.dart';
 
