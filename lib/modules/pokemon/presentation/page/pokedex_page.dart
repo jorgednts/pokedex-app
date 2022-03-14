@@ -119,31 +119,6 @@ class _PokedexPageState extends State<PokedexPage> {
                           child: PokedexTextFieldWidget(
                               controller: controller,
                               textEditingController: textEditingController),
-                          // child: TextField(
-                          //   onEditingComplete: () {
-                          //     if (textEditingController.text.isEmpty) {
-                          //       controller.getPokemonList();
-                          //     }
-                          //   },
-                          //   controller: textEditingController,
-                          //   decoration: InputDecoration(
-                          //     hintText: S.of(context).textFieldPokedexTitle,
-                          //     hintStyle: const TextStyle(
-                          //         color: PokedexConstantsColors.hintTextColor),
-                          //     filled: true,
-                          //     fillColor: Colors.white,
-                          //     contentPadding:
-                          //         const EdgeInsets.fromLTRB(30, 20, 20, 20),
-                          //     border: OutlineInputBorder(
-                          //       borderRadius: BorderRadius.circular(25),
-                          //       borderSide:
-                          //           const BorderSide(color: Colors.white),
-                          //     ),
-                          //   ),
-                          //   onChanged: (textTyped) {
-                          //     controller.getPokemonTyped(textTyped);
-                          //   },
-                          // ),
                         ),
                       ),
                       GestureDetector(
