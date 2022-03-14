@@ -1,6 +1,6 @@
-import 'package:pokedex_app/modules/pokemon/domain/model/pokemon/pokemon_model.dart';
-import 'package:pokedex_app/modules/pokemon/domain/model/pokemon/stat_model.dart';
-import 'package:pokedex_app/modules/pokemon/utils/string_extensions.dart';
+import '../../domain/model/pokemon/pokemon_model.dart';
+import '../../domain/model/pokemon/stat_model.dart';
+import '../../utils/string_extensions.dart';
 
 import '../remote/model/pokemon/details/pokemon_response.dart';
 import '../remote/model/pokemon/specie/specie_response.dart';
