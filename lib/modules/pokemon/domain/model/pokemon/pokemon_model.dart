@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/modules/pokedex_constants/pokedex_constants_colors.dart';
-import 'package:pokedex_app/modules/pokemon/constants/pokemon_constants_colors.dart';
-import 'package:pokedex_app/modules/pokemon/constants/pokemon_constants_type.dart';
+import '../../../../pokedex_constants/pokedex_constants_colors.dart';
+import '../../../constants/pokemon_constants_colors.dart';
+import '../../../constants/pokemon_constants_type.dart';
 
 import 'stat_model.dart';
 
