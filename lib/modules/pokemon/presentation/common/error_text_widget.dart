@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_app/modules/pokedex_constants/pokedex_constants_colors.dart';
 
 class ErrorTextWidget extends StatelessWidget {
   const ErrorTextWidget({
@@ -16,7 +17,7 @@ class ErrorTextWidget extends StatelessWidget {
         errorText.toUpperCase(),
         style: TextStyle(
           fontWeight: FontWeight.bold,
-          color: const Color(0xFFEC0344).withAlpha(85),
+          color: PokedexConstantsColors.primaryColor.withAlpha(85),
           fontSize: 30,
         ),
       ),
