@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../pokemon/constants/pokemon_constants_images.dart';
 import '../controller/splash_controller.dart';
+import '../../../../generated/l10n.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -27,10 +28,10 @@ class _SplashPageState extends State<SplashPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(PokemonConstantsImages.logoHome),
-              const Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: Text('ioasys pokédex',
-                    style: TextStyle(color: Colors.white, fontSize: 24)),
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Text(S.of(context).pageTitle,
+                    style: const TextStyle(color: Colors.white, fontSize: 24)),
               ),
             ],
           ),
