@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/modules/pokemon/domain/model/pokemon/pokemon_model.dart';
+import '../../constants/pokemon_constants_conversion_factors.dart';
+import '../../domain/model/pokemon/pokemon_model.dart';
 
 class PokemonStatListBuilder extends StatelessWidget {
   const PokemonStatListBuilder({
@@ -47,7 +48,8 @@ class PokemonStatListBuilder extends StatelessWidget {
                 .mapPokemonTypeToColor(pokemon.colorNameByFirstType)
                 .withAlpha(50),
             color: pokemon.mapPokemonTypeToColor(pokemon.colorNameByFirstType),
-            value: pokemon.statList[index].base / 100,
+            value: pokemon.statList[index].base /
+                PokemonConstantsConversionFactors.statConversionFactor,
           ),
         )
       ]);

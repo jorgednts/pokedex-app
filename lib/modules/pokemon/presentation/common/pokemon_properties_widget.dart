@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../generated/l10n.dart';
 import '../../../pokedex_constants/pokedex_constants_colors.dart';
+import '../../constants/pokemon_constants_conversion_factors.dart';
 import '../../constants/pokemon_constants_images.dart';
 import '../../domain/model/pokemon/pokemon_model.dart';
 
@@ -33,7 +34,8 @@ class PokemonPropertiesWidget extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 3),
                         child: Text(
-                          '${(pokemon.weight / 10).toString()}'
+                          '${(pokemon.weight / PokemonConstantsConversionFactors.
+                          weightConversionFactor).toString()}'
                           ' kg',
                           style: const TextStyle(fontSize: 14),
                         ),
@@ -59,7 +61,8 @@ class PokemonPropertiesWidget extends StatelessWidget {
                         height: 16,
                       ),
                       Text(
-                        '${(pokemon.height / 10).toString()}'
+                        '${(pokemon.height / PokemonConstantsConversionFactors.
+                        heightConversionFactor).toString()}'
                         ' m',
                         style: const TextStyle(fontSize: 14),
                       ),
