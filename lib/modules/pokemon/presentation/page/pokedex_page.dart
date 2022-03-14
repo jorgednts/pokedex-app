@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex_app/modules/pokemon/presentation/common/pokedex_text_field_widget.dart';
 import 'package:pokedex_app/modules/pokemon/presentation/common/pokemon_loading_state_widget.dart';
 
 import '../../../../generated/l10n.dart';
@@ -115,31 +116,34 @@ class _PokedexPageState extends State<PokedexPage> {
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.only(left: 10),
-                          child: TextField(
-                            onEditingComplete: () {
-                              if (textEditingController.text.isEmpty) {
-                                controller.getPokemonList();
-                              }
-                            },
-                            controller: textEditingController,
-                            decoration: InputDecoration(
-                              hintText: S.of(context).textFieldPokedexTitle,
-                              hintStyle: const TextStyle(
-                                  color: PokedexConstantsColors.hintTextColor),
-                              filled: true,
-                              fillColor: Colors.white,
-                              contentPadding:
-                                  const EdgeInsets.fromLTRB(30, 20, 20, 20),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25),
-                                borderSide:
-                                    const BorderSide(color: Colors.white),
-                              ),
-                            ),
-                            onChanged: (textTyped) {
-                              controller.getPokemonTyped(textTyped);
-                            },
-                          ),
+                          child: PokedexTextFieldWidget(
+                              controller: controller,
+                              textEditingController: textEditingController),
+                          // child: TextField(
+                          //   onEditingComplete: () {
+                          //     if (textEditingController.text.isEmpty) {
+                          //       controller.getPokemonList();
+                          //     }
+                          //   },
+                          //   controller: textEditingController,
+                          //   decoration: InputDecoration(
+                          //     hintText: S.of(context).textFieldPokedexTitle,
+                          //     hintStyle: const TextStyle(
+                          //         color: PokedexConstantsColors.hintTextColor),
+                          //     filled: true,
+                          //     fillColor: Colors.white,
+                          //     contentPadding:
+                          //         const EdgeInsets.fromLTRB(30, 20, 20, 20),
+                          //     border: OutlineInputBorder(
+                          //       borderRadius: BorderRadius.circular(25),
+                          //       borderSide:
+                          //           const BorderSide(color: Colors.white),
+                          //     ),
+                          //   ),
+                          //   onChanged: (textTyped) {
+                          //     controller.getPokemonTyped(textTyped);
+                          //   },
+                          // ),
                         ),
                       ),
                       GestureDetector(
