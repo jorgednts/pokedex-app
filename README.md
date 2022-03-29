@@ -1,3 +1,5 @@
+Em andamento: Injeção de dependência (Flutter Modular)
+##
 App flutter 'Pokemon' ioasys Camp 4ª edição 2022
 
 Este app é baseado em um desafio do camp em Flutter da empresa ioasys. Telas do app:
