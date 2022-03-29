@@ -11,6 +11,7 @@ Este app é baseado em um desafio do camp em Flutter da empresa ioasys. Telas do
 - Clean Architecture;
 - Para requisições API REST: Dio;
 - Para gerenciamento de estado: ValueNotifier;
+-Para injeção de dependência: Flutter Modular.
 
 ##
 
