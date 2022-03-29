@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../generated/l10n.dart';
-
 import '../../../pokemon/constants/pokemon_constants_images.dart';
-
 import '../controller/splash_controller.dart';
 
 class SplashPage extends StatefulWidget {
